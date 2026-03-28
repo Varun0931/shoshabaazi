@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+@theme {
+  --font-heading: "'Playfair Display'", serif;
+  --font-body:    "'DM Sans'", sans-serif;
+
+  --color-saffron: #FF6B35;
+  --color-cream:   #FDF6EC;
+  --color-ink:     #1A1A2E;
+  --color-gold:    #D4AF37;
+}
+
+* { box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #FDF6EC;
+  color: #1A1A2E;
+  margin: 0;
+}
