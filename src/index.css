@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;500;600;700&family=Syne:wght@700;800&family=Noto+Serif+Devanagari:wght@400;700;900&display=swap');
+@import "tailwindcss";
 
 @theme {
   /* ── Fonts ── */
@@ -13,13 +13,13 @@
   --font-syne:       "'Syne'", sans-serif;
   --font-body:       "'DM Sans'", sans-serif;
 
-  /* ── Brand colours (original) ── */
-  --color-saffron: #FF6B35;
-  --color-cream:   #FDF6EC;
-  --color-ink:     #1A1A2E;
-  --color-gold:    #D4AF37;
+  /* ── Brand colours — now mapped to moodboard ── */
+  --color-primary:  #D62828;   /* was saffron #FF6B35  → Sindoor Red     */
+  --color-cream:    #F5ECD7;   /* was cream   #FDF6EC  → Chai Cream       */
+  --color-ink:      #0A0A0A;   /* was ink     #1A1A2E  → Magazine Black   */
+  --color-gold:     #E8A838;   /* was gold    #D4AF37  → Marigold Gold    */
 
-  /* ── Magazine palette (moodboard) ── */
+  /* ── Full magazine palette ── */
   --color-mag-red:      #D62828;
   --color-mag-gold:     #E8A838;
   --color-mag-cream:    #F5ECD7;
@@ -39,60 +39,27 @@
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background-color: #FDF6EC;
-  color: #1A1A2E;
+  background-color: #0A0A0A;   /* ← was #FDF6EC, now Magazine Black  */
+  color: #F5ECD7;              /* ← was #1A1A2E, now Chai Cream      */
   margin: 0;
   overflow-x: hidden;
 }
 
 /* ─────────────────────────────────────
    Typography utilities
-   Use these as plain CSS classes or
-   extend into Tailwind via @layer.
 ───────────────────────────────────── */
-
-/* Magazine cover / hero title */
-.font-heading {
-  font-family: 'Playfair Display', serif;
-}
-
-/* Impact headlines — JOIN THE TAMASHA */
-.font-display {
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.05em;
-}
-
-/* Hindi / Devanagari — शोशाबाज़ी */
-.font-devanagari {
-  font-family: 'Noto Serif Devanagari', serif;
-}
-
-/* Nav links, section labels, badge text */
-.font-label {
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-}
-
-/* Long-form body / editorial copy */
-.font-editorial {
-  font-family: 'Crimson Pro', serif;
-}
-
-/* Buttons, counts, functional UI */
-.font-ui {
-  font-family: 'Outfit', sans-serif;
-}
+.font-heading    { font-family: 'Playfair Display', serif; }
+.font-display    { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+.font-devanagari { font-family: 'Noto Serif Devanagari', serif; }
+.font-label      { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; }
+.font-editorial  { font-family: 'Crimson Pro', serif; }
+.font-ui         { font-family: 'Outfit', sans-serif; }
 
 /* ─────────────────────────────────────
    Film grain overlay
-   Add class="grain" to any section
-   to get the aged-paper texture.
+   Add class="grain" to any section.
 ───────────────────────────────────── */
-.grain {
-  position: relative;
-  isolation: isolate;
-}
+.grain { position: relative; isolation: isolate; }
 .grain::after {
   content: '';
   position: absolute;
@@ -105,29 +72,23 @@ body {
 }
 
 /* ─────────────────────────────────────
-   Dashed divider — magazine section break
-   <hr class="divider-dash"> or <div class="divider-dash">
+   Dashed divider
 ───────────────────────────────────── */
 .divider-dash {
   border: none;
   height: 1px;
   background: repeating-linear-gradient(
     90deg,
-    #C44B28 0,
-    #C44B28 8px,
-    transparent 8px,
-    transparent 14px
+    #C44B28 0, #C44B28 8px,
+    transparent 8px, transparent 14px
   );
   margin: 2rem 0;
 }
 
 /* ─────────────────────────────────────
    Double-border magazine frame
-   Wrap hero or featured sections with this.
 ───────────────────────────────────── */
-.mag-frame {
-  position: relative;
-}
+.mag-frame { position: relative; }
 .mag-frame::before {
   content: '';
   position: absolute;
@@ -140,14 +101,13 @@ body {
   content: '';
   position: absolute;
   inset: 14px;
-  border: 0.5px solid rgba(43, 24, 16, 0.2);
+  border: 0.5px solid rgba(245, 236, 215, 0.2);
   pointer-events: none;
   z-index: 2;
 }
 
 /* ─────────────────────────────────────
-   Stamp badge — circular rotated mark
-   <div class="stamp-badge">DELHI<br>NCR</div>
+   Stamp badge
 ───────────────────────────────────── */
 .stamp-badge {
   display: inline-flex;
@@ -169,8 +129,7 @@ body {
 }
 
 /* ─────────────────────────────────────
-   Tape banner element
-   <div class="tape-banner">Life Beyond Home & Office</div>
+   Tape banner
 ───────────────────────────────────── */
 .tape-banner {
   background: #E8A838;
@@ -189,42 +148,15 @@ body {
 
 /* ─────────────────────────────────────
    Event card colour variants
-   Apply to your event card component root.
 ───────────────────────────────────── */
-
-/* Recurring events */
-.event-card-red {
-  background: #D62828;
-  color: #F5ECD7;
-}
-
-/* Flagship / featured events */
-.event-card-dark {
-  background: #1A1A1A;
-  color: #F5ECD7;
-}
-
-/* New / experimental formats */
-.event-card-teal {
-  background: #1A6B5A;
-  color: #F5ECD7;
-}
-
-/* Weekend specials */
-.event-card-gold {
-  background: #E8A838;
-  color: #2B1810;
-}
-
-/* Chai / cream cards */
-.event-card-cream {
-  background: #F5ECD7;
-  color: #2B1810;
-}
+.event-card-red   { background: #D62828; color: #F5ECD7; }
+.event-card-dark  { background: #1A1A1A; color: #F5ECD7; }
+.event-card-teal  { background: #1A6B5A; color: #F5ECD7; }
+.event-card-gold  { background: #E8A838; color: #2B1810; }
+.event-card-cream { background: #F5ECD7; color: #2B1810; }
 
 /* ─────────────────────────────────────
    Badge / urgency chips
-   <span class="badge badge-red">This Sunday</span>
 ───────────────────────────────────── */
 .badge {
   display: inline-block;
@@ -235,7 +167,7 @@ body {
   padding: 4px 12px;
   line-height: 1;
 }
-.badge-red      { background: #D62828; color: #F5ECD7; }
-.badge-gold     { background: #E8A838; color: #2B1810; }
-.badge-teal     { background: #1A6B5A; color: #F5ECD7; }
-.badge-dark     { background: #2B1810; color: #F5ECD7; }
+.badge-red  { background: #D62828; color: #F5ECD7; }
+.badge-gold { background: #E8A838; color: #2B1810; }
+.badge-teal { background: #1A6B5A; color: #F5ECD7; }
+.badge-dark { background: #2B1810; color: #F5ECD7; }
