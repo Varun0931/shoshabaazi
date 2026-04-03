@@ -11,10 +11,16 @@ export default function Membership() {
 
       <div className="border-2 border-mag-red p-10 max-w-md">
         <p className="font-label text-mag-red text-xs mb-4">Member plan</p>
-        <p className="font-heading text-5xl text-cream mb-1">
-          ₹299<span className="text-2xl text-cream/40">/mo</span>
+        <div className="flex items-end gap-4 mb-1">
+        <p className="font-heading text-5xl text-cream/30 line-through decoration-mag-red decoration-2">
+        ₹299
         </p>
-        <p className="font-ui text-cream/40 text-sm mb-8">Billed annually · Cancel anytime</p>
+        <p className="font-heading text-5xl text-mag-gold">
+        ₹99<span className="text-2xl text-mag-gold/50">/mo</span>
+        </p>
+      </div>
+        <p className="font-ui text-cream/40 text-sm mb-1">Billed annually · Cancel anytime</p>
+          <p className="badge badge-red mb-8">🎉 Early Bird Offer</p>
 
         <div className="divider-dash" />
 

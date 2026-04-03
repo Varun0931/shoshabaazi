@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;500;600;700&family=Syne:wght@700;800&family=Noto+Serif+Devanagari:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;500;600;700&family=Syne:wght@700;800&family=Noto+Serif+Devanagari:wght@400;700;900&&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -7,6 +7,7 @@
   --font-display:    "'Bebas Neue'", sans-serif;
   --font-impact:     "'Archivo Black'", sans-serif;
   --font-devanagari: "'Noto Serif Devanagari'", serif;
+  --font-urdu:       "'Noto Nastaliq Urdu'", serif;
   --font-label:      "'Oswald'", sans-serif;
   --font-editorial:  "'Crimson Pro'", serif;
   --font-ui:         "'Outfit'", sans-serif;
@@ -171,3 +172,16 @@ body {
 .badge-gold { background: #E8A838; color: #2B1810; }
 .badge-teal { background: #1A6B5A; color: #F5ECD7; }
 .badge-dark { background: #2B1810; color: #F5ECD7; }
+
+/* ─────────────────────────────────────
+   Brand name slide animation
+───────────────────────────────────── */
+@keyframes brand-slide {
+  0%, 100% { transform: translateX(0px);  }
+  50%       { transform: translateX(120px); }
+}
+
+.brand-slide {
+  animation: brand-slide 4s ease-in-out infinite;
+  display: inline-block;
+}

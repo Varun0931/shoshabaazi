@@ -18,7 +18,7 @@ export default function Home() {
     <main>
 
       {/* ── Hero ── vintage cream magazine cover */}
-      <section className="grain mag-frame min-h-[92vh] flex flex-col justify-center items-center text-center px-6 bg-cream">
+      <section className="grain mag-frame min-h-[92vh] flex flex-col justify-center items-center text-center px-6 bg-mag-charcoal">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-heading text-5xl md:text-7xl text-ink leading-tight max-w-3xl">
+          className="font-heading text-5xl md:text-7xl text-cream leading-tight max-w-3xl">
           Meet Delhi people <br />
           <em className="text-mag-red">figuring it out together</em>
         </motion.h1>
@@ -40,7 +40,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-6 font-editorial italic text-lg text-ink/60 max-w-xl leading-relaxed">
+          className="mt-6 font-editorial italic text-lg text-cream/60 max-w-xl leading-relaxed">
           A private community for people in their 20s–40s across Delhi — navigating
           careers, friendships, and everything in between.
         </motion.p>
@@ -55,7 +55,7 @@ export default function Home() {
             Apply to Join
           </Link>
           <Link to="/events"
-            className="px-8 py-4 border border-ink/30 text-ink font-ui rounded-full text-lg hover:border-mag-red hover:text-mag-red transition">
+            className="px-8 py-4 border border-cream/30 text-cream font-ui rounded-full hover:border-mag-red hover:text-mag-red transition">
             See Events
           </Link>
         </motion.div>
@@ -64,7 +64,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1 }}
-          className="mt-6 font-label text-xs text-ink/40">
+          className="mt-6 font-label text-xs text-cream/40">
           From ₹299/month · No gatekeeping · All of Delhi welcome
         </motion.p>
       </section>
