@@ -1,20 +1,241 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&family=Archivo+Black&family=Outfit:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;500;600;700&family=Syne:wght@700;800&family=Noto+Serif+Devanagari:wght@400;700;900&display=swap');
 
 @theme {
-  --font-heading: "'Playfair Display'", serif;
-  --font-body:    "'DM Sans'", sans-serif;
+  /* ── Fonts ── */
+  --font-heading:    "'Playfair Display'", serif;
+  --font-display:    "'Bebas Neue'", sans-serif;
+  --font-impact:     "'Archivo Black'", sans-serif;
+  --font-devanagari: "'Noto Serif Devanagari'", serif;
+  --font-label:      "'Oswald'", sans-serif;
+  --font-editorial:  "'Crimson Pro'", serif;
+  --font-ui:         "'Outfit'", sans-serif;
+  --font-syne:       "'Syne'", sans-serif;
+  --font-body:       "'DM Sans'", sans-serif;
 
+  /* ── Brand colours (original) ── */
   --color-saffron: #FF6B35;
   --color-cream:   #FDF6EC;
   --color-ink:     #1A1A2E;
   --color-gold:    #D4AF37;
+
+  /* ── Magazine palette (moodboard) ── */
+  --color-mag-red:      #D62828;
+  --color-mag-gold:     #E8A838;
+  --color-mag-cream:    #F5ECD7;
+  --color-mag-black:    #0A0A0A;
+  --color-mag-charcoal: #1A1A1A;
+  --color-mag-offwhite: #FAF7F0;
+  --color-mag-teal:     #1A6B5A;
+  --color-mag-hotpink:  #E83F6F;
+  --color-mag-burnt:    #C44B28;
+  --color-mag-deep:     #2B1810;
 }
 
+/* ─────────────────────────────────────
+   Base
+───────────────────────────────────── */
 * { box-sizing: border-box; }
+
 body {
   font-family: 'DM Sans', sans-serif;
   background-color: #FDF6EC;
   color: #1A1A2E;
   margin: 0;
+  overflow-x: hidden;
 }
+
+/* ─────────────────────────────────────
+   Typography utilities
+   Use these as plain CSS classes or
+   extend into Tailwind via @layer.
+───────────────────────────────────── */
+
+/* Magazine cover / hero title */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Impact headlines — JOIN THE TAMASHA */
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Hindi / Devanagari — शोशाबाज़ी */
+.font-devanagari {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+
+/* Nav links, section labels, badge text */
+.font-label {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* Long-form body / editorial copy */
+.font-editorial {
+  font-family: 'Crimson Pro', serif;
+}
+
+/* Buttons, counts, functional UI */
+.font-ui {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ─────────────────────────────────────
+   Film grain overlay
+   Add class="grain" to any section
+   to get the aged-paper texture.
+───────────────────────────────────── */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px;
+}
+
+/* ─────────────────────────────────────
+   Dashed divider — magazine section break
+   <hr class="divider-dash"> or <div class="divider-dash">
+───────────────────────────────────── */
+.divider-dash {
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #C44B28 0,
+    #C44B28 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  margin: 2rem 0;
+}
+
+/* ─────────────────────────────────────
+   Double-border magazine frame
+   Wrap hero or featured sections with this.
+───────────────────────────────────── */
+.mag-frame {
+  position: relative;
+}
+.mag-frame::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px solid #D62828;
+  pointer-events: none;
+  z-index: 2;
+}
+.mag-frame::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border: 0.5px solid rgba(43, 24, 16, 0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────────
+   Stamp badge — circular rotated mark
+   <div class="stamp-badge">DELHI<br>NCR</div>
+───────────────────────────────────── */
+.stamp-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #D62828;
+  transform: rotate(-12deg);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.45rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #D62828;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* ─────────────────────────────────────
+   Tape banner element
+   <div class="tape-banner">Life Beyond Home & Office</div>
+───────────────────────────────────── */
+.tape-banner {
+  background: #E8A838;
+  color: #2B1810;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-2deg);
+}
+
+/* ─────────────────────────────────────
+   Event card colour variants
+   Apply to your event card component root.
+───────────────────────────────────── */
+
+/* Recurring events */
+.event-card-red {
+  background: #D62828;
+  color: #F5ECD7;
+}
+
+/* Flagship / featured events */
+.event-card-dark {
+  background: #1A1A1A;
+  color: #F5ECD7;
+}
+
+/* New / experimental formats */
+.event-card-teal {
+  background: #1A6B5A;
+  color: #F5ECD7;
+}
+
+/* Weekend specials */
+.event-card-gold {
+  background: #E8A838;
+  color: #2B1810;
+}
+
+/* Chai / cream cards */
+.event-card-cream {
+  background: #F5ECD7;
+  color: #2B1810;
+}
+
+/* ─────────────────────────────────────
+   Badge / urgency chips
+   <span class="badge badge-red">This Sunday</span>
+───────────────────────────────────── */
+.badge {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  line-height: 1;
+}
+.badge-red      { background: #D62828; color: #F5ECD7; }
+.badge-gold     { background: #E8A838; color: #2B1810; }
+.badge-teal     { background: #1A6B5A; color: #F5ECD7; }
+.badge-dark     { background: #2B1810; color: #F5ECD7; }
