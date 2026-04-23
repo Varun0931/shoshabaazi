@@ -17,7 +17,7 @@ export default function Events() {
       </p>
 
       <div className="flex flex-col gap-2">
-        {events.map((e, i) => (
+        {events.map((e) => (
           <div key={e.title}
             className={`${e.card} flex flex-col md:flex-row md:items-center justify-between p-6 gap-4`}>
             <div>

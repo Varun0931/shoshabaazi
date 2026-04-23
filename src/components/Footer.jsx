@@ -1,35 +1,65 @@
+const palette = [
+  { bg: '#D62828', title: 'Sindoor Red' },
+  { bg: '#E8A838', title: 'Marigold' },
+  { bg: '#F5ECD7', title: 'Chai Cream' },
+  { bg: '#1A6B5A', title: 'Autorickshaw Green' },
+  { bg: '#E83F6F', title: 'Gulaal Pink' },
+  { bg: '#C44B28', title: 'Burnt Masala' },
+]
+
+const eventsLinks  = ['Upcoming', 'Chai & Charcha', 'Midnight Walks', 'Rooftop Adda', "Strangers' Brunch"]
+const communityLinks = ['Join Us', 'Our Values', 'Member Stories', 'The Manifesto']
+const connectLinks   = ['Instagram', 'WhatsApp Group', 'Newsletter', 'Contact']
+
 export default function Footer() {
   return (
-    <footer className="bg-ink text-cream/70 py-12 px-6 mt-24">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-8">
-        <div>
-          <h3 className="font-heading text-2xl text-cream mb-2">Shoshabaazi</h3>
-          <p className="text-sm max-w-xs leading-relaxed">
-            Delhi's community for people figuring it out — together.
-          </p>
-        </div>
-        <div className="flex gap-12 text-sm">
-          <div className="flex flex-col gap-2">
-            <span className="text-cream font-body font-medium mb-1">Pages</span>
-            {["Events","Membership","About","Apply"].map(p => (
-              <a key={p} href={`/${p.toLowerCase()}`}
-                className="hover:text-saffron transition-colors">{p}</a>
+    <footer role="contentinfo">
+      <div className="footer-top">
+        {/* Brand */}
+        <div className="footer-brand">
+          <span className="wordmark">Shoshabaazi</span>
+          <span className="hindi">शोशाबाज़ी</span>
+          <p className="tagline">A breather from monotonous life. Real people, real fun, no pretense.</p>
+          <div className="palette-row" title="Brand colour palette" aria-hidden="true">
+            {palette.map(p => (
+              <div className="pdot" key={p.title} style={{ background: p.bg }} title={p.title}></div>
             ))}
           </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-cream font-body font-medium mb-1">Connect</span>
-            <a href="mailto:hello@shoshabaazi.in" className="hover:text-saffron transition-colors">
-              Email us
-            </a>
-            <a href="https://instagram.com" className="hover:text-saffron transition-colors">
-              Instagram
-            </a>
-          </div>
+        </div>
+
+        {/* Events */}
+        <div className="footer-col">
+          <div className="col-head">Events</div>
+          <ul>
+            {eventsLinks.map(l => <li key={l}><a href="#">{l}</a></li>)}
+          </ul>
+        </div>
+
+        {/* Community */}
+        <div className="footer-col">
+          <div className="col-head">Community</div>
+          <ul>
+            {communityLinks.map(l => <li key={l}><a href="#">{l}</a></li>)}
+          </ul>
+        </div>
+
+        {/* Connect */}
+        <div className="footer-col">
+          <div className="col-head">Connect</div>
+          <ul>
+            {connectLinks.map(l => <li key={l}><a href="#">{l}</a></li>)}
+          </ul>
         </div>
       </div>
-      <p className="text-center text-xs text-cream/30 mt-10">
-        © 2025 Shoshabaazi. Made in Delhi.
-      </p>
+
+      <div className="footer-bottom">
+        <div className="footer-copy">© 2026 Shoshabaazi · Delhi NCR · Come As You Are</div>
+        <div className="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">WhatsApp</a>
+          <a href="#">Newsletter</a>
+        </div>
+      </div>
     </footer>
   )
 }

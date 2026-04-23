@@ -21,7 +21,6 @@ export default function Membership() {
       </div>
         <p className="font-ui text-cream/40 text-sm mb-1">Billed annually · Cancel anytime</p>
           <p className="badge badge-red mb-8">🎉 Early Bird Offer</p>
-
         <div className="divider-dash" />
 
         <ul className="flex flex-col gap-4 font-editorial italic text-cream/70 my-8">
