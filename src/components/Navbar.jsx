@@ -1,6 +1,20 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 
 export default function Navbar() {
+  const { user, loading, logout } = useAuth()
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const navigate = useNavigate()
+
+  const firstName = user?.user_metadata?.full_name?.split(' ')[0] ?? user?.email
+
+  const handleLogout = async () => {
+    setDropdownOpen(false)
+    await logout()
+    navigate('/')
+  }
+
   return (
     <nav className="nav" role="navigation" aria-label="Main navigation">
       <div className="nav-inner">
@@ -17,7 +31,31 @@ export default function Navbar() {
         </ul>
         <div className="nav-right">
           <span className="nav-city">Delhi NCR</span>
-          <Link className="nav-cta" to="/register">Join the Tamasha</Link>
+
+          {!loading && (
+            user ? (
+              <div className="nav-user-wrap">
+                <button
+                  className="nav-user-btn"
+                  onClick={() => setDropdownOpen(o => !o)}
+                  aria-expanded={dropdownOpen}
+                >
+                  <span className="nav-user-avatar">{firstName?.[0]?.toUpperCase()}</span>
+                  <span className="nav-user-name">{firstName}</span>
+                  <span className="nav-user-chevron">{dropdownOpen ? '▲' : '▼'}</span>
+                </button>
+                {dropdownOpen && (
+                  <div className="nav-dropdown">
+                    <button className="nav-dropdown-item" onClick={handleLogout}>
+                      Log Out
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link className="nav-cta" to="/register">Join the Tamasha</Link>
+            )
+          )}
         </div>
       </div>
     </nav>

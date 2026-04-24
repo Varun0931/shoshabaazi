@@ -1,12 +1,16 @@
 import { useForm } from 'react-hook-form'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, Navigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useState } from 'react'
+import { useAuth } from '../hooks/useAuth'
 
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm()
   const [apiError, setApiError] = useState('')
   const navigate = useNavigate()
+  const { user, loading } = useAuth()
+
+  if (!loading && user) return <Navigate to="/" replace />
 
   const onSubmit = async ({ email, password }) => {
     setApiError('')
