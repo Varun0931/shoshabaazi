@@ -11,6 +11,31 @@ export default function Register() {
 
   const onSubmit = async ({ firstName, lastName, email, phone, password }) => {
     setApiError('')
+
+    // Check for duplicate email
+    const { data: emailMatch } = await supabase
+      .from('members')
+      .select('email')
+      .eq('email', email)
+      .maybeSingle()
+    if (emailMatch) {
+      setApiError('This email is already registered. Try logging in instead.')
+      return
+    }
+
+    // Check for duplicate phone
+    if (phone) {
+      const { data: phoneMatch } = await supabase
+        .from('members')
+        .select('phone')
+        .eq('phone', phone)
+        .maybeSingle()
+      if (phoneMatch) {
+        setApiError('This WhatsApp number is already registered. Try logging in instead.')
+        return
+      }
+    }
+
     const { data, error } = await supabase.auth.signUp({
       email, password,
       options: {
