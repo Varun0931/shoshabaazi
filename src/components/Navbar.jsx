@@ -36,12 +36,12 @@ export default function Navbar() {
             user ? (
               <div className="nav-user-wrap">
                 <button
-                  className="nav-user-btn"
+                  className="nav-cta nav-user-btn"
                   onClick={() => setDropdownOpen(o => !o)}
                   aria-expanded={dropdownOpen}
                 >
                   <span className="nav-user-avatar">{firstName?.[0]?.toUpperCase()}</span>
-                  <span className="nav-user-name">{firstName}</span>
+                  Shoshabaaz {firstName}
                   <span className="nav-user-chevron">{dropdownOpen ? '▲' : '▼'}</span>
                 </button>
                 {dropdownOpen && (

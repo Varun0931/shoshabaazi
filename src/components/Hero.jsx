@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 
 export default function Hero() {
+  const { user } = useAuth()
+  const firstName = user?.user_metadata?.full_name?.split(' ')[0] ?? user?.email
+
   return (
     <section className="hero" aria-label="Hero section">
       <div className="hero-inner">
@@ -21,7 +25,9 @@ export default function Hero() {
             midnight walks, rooftop addas, and strangers who don't stay strangers for long.
           </p>
           <div className="hero-actions">
-            <Link to="/register" className="btn-primary">Find My People</Link>
+            <Link to={user ? '#events' : '/register'} className="btn-primary">
+              {user ? `Shoshabaaz ${firstName}` : 'Find My People'}
+            </Link>
             <a href="#events" className="btn-ghost">See upcoming events</a>
           </div>
           <div className="hero-stats">
