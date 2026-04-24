@@ -9,8 +9,8 @@ export default function About() {
       <div className="font-editorial italic text-cream/70 text-lg leading-relaxed flex flex-col gap-6 mt-8">
         <p>
           Shoshabaazi started because Delhi is enormous and somehow still lonely.
-          The city has 20 million people and yet finding your people — the ones
-          who get it, who show up, who make you feel less like a floating atom — is oddly hard.
+          The city has 20 million people and yet finding your people - the ones
+          who get it, who show up, who make you feel less like a floating atom - is oddly hard.
         </p>
         <p>
           We believe the right dinner table changes careers. The right walk changes a decision.
@@ -18,10 +18,10 @@ export default function About() {
         </p>
         <p>
           Shoshabaazi is a private community. You apply, we review,
-          and if it's a fit — welcome home.
+          and if it's a fit - welcome home.
         </p>
         <p>
-          We host 10+ events a month across Delhi — from early morning chai walks in
+          We host 10+ events a month across Delhi - from early morning chai walks in
           Lodi Garden to late-night founder dinners in Hauz Khas. Every gathering is
           small, intentional, and worth showing up for.
         </p>

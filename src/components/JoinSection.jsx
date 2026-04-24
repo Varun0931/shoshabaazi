@@ -12,7 +12,7 @@ export default function JoinSection() {
         </div>
         <div className="join-title">500 Seats.<br />Real People.<br />Your City.</div>
         <p className="join-sub">
-          We're building Delhi NCR's most fun community — people who refuse to let their social
+          We're building Delhi NCR's most fun community - people who refuse to let their social
           life become a calendar they never open. First events dropping soon. You should be there.
         </p>
         <Link to="/register" className="join-btn">I Want In</Link>

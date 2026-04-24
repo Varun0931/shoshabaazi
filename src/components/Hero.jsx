@@ -17,7 +17,7 @@ export default function Hero() {
           <div className="hero-hindi">बोरियत को बोलो अलविदा</div>
           <div className="hero-rule"></div>
           <p className="hero-body">
-            Shoshabaazi is your weekly excuse to stop scrolling and start living — chai meetups,
+            Shoshabaazi is your weekly excuse to stop scrolling and start living - chai meetups,
             midnight walks, rooftop addas, and strangers who don't stay strangers for long.
           </p>
           <div className="hero-actions">
