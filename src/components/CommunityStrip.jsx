@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 
 const quotes = [
   {
@@ -22,6 +23,9 @@ const stats = [
 ]
 
 export default function CommunityStrip() {
+  const { user } = useAuth()
+  const firstName = user?.user_metadata?.full_name?.split(' ')[0] ?? user?.email
+
   return (
     <section className="community-strip" aria-label="Community voices">
       <div className="community-strip-inner">
@@ -43,7 +47,11 @@ export default function CommunityStrip() {
               </div>
             ))}
           </div>
-          <Link to="/register" className="join-link">Become a member</Link>
+          {user ? (
+            <a href="#events" className="join-link">Shoshabaaz {firstName}</a>
+          ) : (
+            <Link to="/register" className="join-link">Become a member</Link>
+          )}
         </div>
       </div>
     </section>
