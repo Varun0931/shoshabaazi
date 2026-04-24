@@ -13,7 +13,10 @@ export default function Register() {
     setApiError('')
     const { data, error } = await supabase.auth.signUp({
       email, password,
-      options: { data: { full_name: `${firstName} ${lastName}`, phone } }
+      options: {
+        data: { full_name: `${firstName} ${lastName}`, phone },
+        emailRedirectTo: `${window.location.origin}/auth/confirm`,
+      }
     })
     if (error) { setApiError(error.message); return }
 
