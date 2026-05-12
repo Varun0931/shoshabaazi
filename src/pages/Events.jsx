@@ -1,8 +1,36 @@
 const events = [
-  { title: "Chai Walk — Lodi Garden",      date: "Sat, 12 Jul · 7am",  spots: "12 spots left", tag: "Outdoors",  card: "event-card-cream" },
-  { title: "Founders' Dinner — Hauz Khas", date: "Fri, 18 Jul · 8pm",  spots: "6 spots left",  tag: "Dinner",    card: "event-card-dark"  },
-  { title: "Career Pivot Circle",          date: "Sun, 20 Jul · 6pm",  spots: "Open",           tag: "Online",    card: "event-card-teal"  },
-  { title: "Book & Chai — Lodhi Art",      date: "Sat, 26 Jul · 5pm",  spots: "18 spots left",  tag: "Culture",   card: "event-card-gold"  },
+  { 
+    title: "A Day With Unknown Friends",      
+    date: "Sat, 16 May 2026",  
+    spots: "15 spots left", 
+    tag: "Launch Event",  
+    card: "event-card-cream",
+    isComingSoon: false 
+  },
+  { 
+    title: "Founders' Dinner — Hauz Khas", 
+    date: "Coming Soon",  
+    spots: "TBA",  
+    tag: "Dinner",    
+    card: "event-card-dark",
+    isComingSoon: true  
+  },
+  { 
+    title: "Career Pivot Circle",          
+    date: "Coming Soon",  
+    spots: "TBA",          
+    tag: "Online",    
+    card: "event-card-teal",
+    isComingSoon: true  
+  },
+  { 
+    title: "Book & Chai — Lodhi Art",      
+    date: "Coming Soon",  
+    spots: "TBA",  
+    tag: "Culture",   
+    card: "event-card-gold",
+    isComingSoon: true  
+  },
 ]
 
 export default function Events() {
@@ -27,10 +55,18 @@ export default function Events() {
             </div>
             <div className="flex items-center gap-4">
               <span className="badge badge-dark opacity-70 font-ui">{e.spots}</span>
-              <a href="/apply"
-                className="px-5 py-2 bg-mag-red text-cream font-label text-xs hover:bg-mag-burnt transition whitespace-nowrap">
-                RSVP
-              </a>
+              {e.isComingSoon ? (
+                <button 
+                  disabled
+                  className="px-5 py-2 bg-mag-red/40 text-cream/60 font-label text-xs cursor-not-allowed whitespace-nowrap">
+                  Notify me
+                </button>
+              ) : (
+                <a href="/apply"
+                  className="px-5 py-2 bg-mag-red text-cream font-label text-xs hover:bg-mag-burnt transition whitespace-nowrap">
+                  RSVP
+                </a>
+              )}
             </div>
           </div>
         ))}
